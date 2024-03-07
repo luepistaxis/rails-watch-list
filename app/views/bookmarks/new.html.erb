@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Bookmark for <%= @list.name %> List </h1>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit "Add new bookmark"%>
+  <% end %>
+
+  <%= link_to "back to list", list_path(@list) %>
+</div>

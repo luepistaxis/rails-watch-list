@@ -1,0 +1,20 @@
+<div class="container">
+  <h1><%= @list.name %></h1>
+
+  <h3><%= @list.movies.length %> movies in this list</h3>
+
+  <%= link_to "Add new Bookmark", new_list_bookmark_path(@list)%>
+  <h2>Movies: </h2>
+  <div class="d-flex flex-row justify-content-left">
+        <% @list.movies.each do |movie| %>
+          <div class="card me-3" style="width: 200px; border-radius: 10px;">
+            <img class="card-img-top" style="border-radius: 10px 10px 0px 0px;" src=<%= movie.poster_url %>>
+            <div class="card-body">
+              <%= movie.title %>
+            </div>
+          </div>
+        <% end %>
+
+  </div>
+  <%= link_to "back to Lists", lists_path%>
+</div>
