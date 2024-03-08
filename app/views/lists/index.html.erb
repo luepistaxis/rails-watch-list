@@ -1,11 +1,17 @@
 <div class="container">
   <h1>Lists</h1>
 
-  <ul>
+  <div class="d-flex flex-row justify-content-left">
     <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list.id) %></li>
+      <% if list.photo.present? %>
+        <div class="card me-3" style="justify-content: center; width: 250px; height: 100px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>')">
+      <% else %>
+        <div class="card me-3" style="justify-content: center; width: 250px; height: 100px; background-color: black">
+      <% end %>
+            <h3 style="color: white; font-weight: bold; vertical-align: center;"><%= link_to list.name, list_path(list.id)%></h3>
+        </div>
     <% end %>
-  </ul>
+  </div>
 
   <%= link_to "Create new list", new_list_path(@list)%>
 </div>

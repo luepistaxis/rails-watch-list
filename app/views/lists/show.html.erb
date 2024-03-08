@@ -1,6 +1,13 @@
+<% if @list.photo.present? %>
+  <div class="banner" style="padding: 16px;background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path @list.photo.key%>')">
+<% else %>
+  <div class="banner" style="padding: 16px; background-color: black;">
+<% end %>
+  <div class="container">
+    <h1 style="color: white; font-size: 100px; font-weight: bold;"><%= @list.name.upcase %></h1>
+  </div>
+</div>
 <div class="container">
-  <h1><%= @list.name %></h1>
-
   <h3><%= @list.movies.length %> movies in this list</h3>
 
   <%= link_to "Add new Bookmark", new_list_bookmark_path(@list)%>
@@ -17,4 +24,5 @@
 
   </div>
   <%= link_to "back to Lists", lists_path%>
+
 </div>
